@@ -10,5 +10,8 @@
       "minLength": 6
     }
   },
-  "required": ["email", "password"]
+  "required": [
+    "email",
+    "password"
+  ]
 }

@@ -7,8 +7,16 @@
     },
     "lifeTime": {
       "type": "string",
-      "enum": ["singleuse", "oneday", "threedays", "sevendays"]
+      "enum": [
+        "singleuse",
+        "oneday",
+        "threedays",
+        "sevendays"
+      ]
     }
   },
-  "required": ["longLink", "lifeTime"]
+  "required": [
+    "longLink",
+    "lifeTime"
+  ]
 }
