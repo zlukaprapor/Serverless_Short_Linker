@@ -4,23 +4,21 @@ import { CustomError } from "./customError";
 export const errorHandler = (error: unknown): APIGatewayProxyResult => {
   const headers = { "content-type": "application/json" };
 
-  console.log(error);
+  console.error(error);
 
   if (error instanceof CustomError) {
-    return {
-      statusCode: error.statusCode,
-      headers,
-      body: JSON.stringify({
-        Error: error.message,
-      }),
-    };
+    return createErrorResponse(error.statusCode, error.message, headers);
   } else {
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({
-        Error: "Internal server error",
-      }),
-    };
+    return createErrorResponse(500, "Internal server error", headers);
   }
+};
+
+const createErrorResponse = (statusCode: number, errorMessage: string, headers: Record<string, string>): APIGatewayProxyResult => {
+  return {
+    statusCode,
+    headers,
+    body: JSON.stringify({
+      Error: errorMessage,
+    }),
+  };
 };

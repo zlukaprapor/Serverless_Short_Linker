@@ -1,5 +1,5 @@
 import {APIGatewayAuthorizerResult, PolicyDocument, APIGatewayRequestAuthorizerEvent} from "aws-lambda";
-import {decryptToken} from "../utilities/";
+import {decryptToken} from "../utilities/token";
 import {User, getUser} from "../datasets/user";
 
 
